@@ -2,7 +2,6 @@ import requests, json, time
 from concurrent.futures import ThreadPoolExecutor
 
 
-
 def img_info(img_id):
     url = f"https://jsonplaceholder.typicode.com/photos/{img_id}"
     return requests.get(url).json()

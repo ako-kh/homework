@@ -22,9 +22,6 @@ def request_f(domain, timeout):
         response_t = "N/A"
         ip = "N/A"
 
-    print(ip)
-    print(response_t)
-
     return {
             "domain": domain,
             "response_time": response_t,
@@ -35,9 +32,7 @@ with ThreadPoolExecutor(max_workers=100) as executor:
     for dom in domains:
         results_list.append(executor.submit(request_f, dom, 5))
 
-print("here")
 with open("results.csv", "w") as f:
-    print("next")
     headers = ["domain", "response_time", "ip_address"]
     writer = csv.DictWriter(f, fieldnames=headers)
     writer.writeheader()

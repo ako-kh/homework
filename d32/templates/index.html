@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h2>{{ movie_count }} movies</h2>
+    <h2>average movie duration: {{ avg_duration }}</h2>
+
+    {% for movie in movies %}
+        <div {% if 9 <= movie.rating %}
+                style="color:green;"
+            {% elif 8.5 <= movie.rating %}
+                style="color:orange;"
+            {% else %}
+                style="color:gray;"
+            {% endif %} >
+
+            <h3>{{ movie.title }}</h3>
+            <p>relies year: {{ movie.year }}</p>
+            <p>rating: {{ movie.rating }}</p>
+            <p>genre: {{ movie.genre }}</p>
+            <p>duration: {{ movie.duration }}m</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
